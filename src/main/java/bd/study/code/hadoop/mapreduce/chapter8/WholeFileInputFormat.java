@@ -1,4 +1,4 @@
-package bd.study.code.hadoop.mapreduce.Chapter8;
+package bd.study.code.hadoop.mapreduce.chapter8;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FSDataInputStream;

@@ -1,5 +1,6 @@
-package bd.study.code.hadoop.mapreduce.Chapter8;
+package bd.study.code.hadoop.mapreduce.chapter8;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
@@ -40,6 +41,13 @@ public class MinimalMapReduce extends Configured implements Tool {
     }
 
     public static Job parseInputAndOutput(Tool tool, Configuration conf, String[] args) throws IOException {
+        if (args.length < 2 || StringUtils.isBlank(args[0])) {
+            args = new String[]{
+                    "D:\\workDir\\otherFile\\temp\\airtemperature_data\\data4test",
+                    "D:\\workDir\\otherFile\\temp\\airtemperature_data\\testoutput"
+            };
+        }
+
         if (args.length != 2) {
             printUsage(tool, "<input> <output>");
             return null;
